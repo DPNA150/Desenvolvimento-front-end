@@ -10,106 +10,45 @@
 
 <body>
 
-    <div class="container">
+    <main>
         <strong>
             <label id="form-title">Login</label>
         </strong>
 
+        <!-- LOGIN -->
         <form id="login-form">
-            <input type="text" id="login-username" placeholder="Nome de usuário">
-            <input type="password" id="login-password" placeholder="Senha">
-            <button type="button" onclick="login()">Entrar</button>
+            <input type="text" id="login-username" placeholder="Nome de usuário" required>
+            <input type="password" id="login-password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
             <p><span onclick="toggleForm()">Não tem uma conta? Cadastre-se</span></p>
         </form>
 
+        <!-- CADASTRO 1 -->
         <form id="signup-form" style="display: none;">
-            <input type="text" id="signup-username" placeholder="Nome de usuário">
-            <input type="email" id="signup-email" placeholder="Email">
-            <input type="tel" id="signup-number" placeholder="Número de telefone">
-            <input type="password" id="signup-password" placeholder="Senha">
-            <input type="password" id="signup-confirm-password" placeholder="Confirmar Senha">
-            <button type="button" onclick="seguir()">Continuar</button>
+            <input type="text" id="signup-username" minlength="3" maxlength="15" placeholder="Nome de usuário" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="date"  id="signup-birthdate" min="1920-01-01" required>
+            <input type="tel" id="signup-number" maxlength="12" placeholder="Número de telefone" required>
+            <input type="password" id="signup-password" minlength="6" maxlength="10" placeholder="Senha" required>
+            <input type="password" id="signup-confirm-password" minlength="6" maxlength="10"
+                placeholder="Confirmar Senha" required>
+            <button type="submit">Continuar</button>
             <p><span onclick="toggleForm()">Já tem uma conta? Faça login</span></p>
         </form>
 
+        <!-- CADASTRO 2 -->
         <form id="signup-form2" style="display: none;">
-            <select id="tema-user">
+            <select id="tema-user" required>
                 <option value="" disabled selected>Selecione o tema</option>
                 <option>Futebol Europeu</option>
                 <option>Futebol Inglês</option>
                 <option>Futebol Brasileiro</option>
             </select>
-            <button type="button" onclick="signup()">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
-    </div>
+    </main>
 
-    <script>
-        function toggleForm() {
-            const loginForm = document.getElementById('login-form');
-            const signupForm = document.getElementById('signup-form');
-            const signupForm2 = document.getElementById('signup-form2');
-            const formTitle = document.getElementById('form-title');
-
-            if (loginForm.style.display === 'none') {
-                loginForm.style.display = 'block';
-                signupForm.style.display = 'none';
-                signupForm2.style.display = 'none';
-                formTitle.textContent = 'Login';
-            } else {
-                loginForm.style.display = 'none';
-                signupForm.style.display = 'block';
-                signupForm2.style.display = 'none';
-                formTitle.textContent = 'Cadastro';
-            }
-        }
-
-        function login() {
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-
-            if (username === "" || password === "") {
-                alert("Preencha todos os campos.");
-                return;
-            }
-
-            alert("Login realizado!");
-            window.location.href = "index.html";
-        }
-
-        function seguir() {
-            const username = document.getElementById('signup-username').value;
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
-            const confirmPassword = document.getElementById('signup-confirm-password').value;
-
-            if (!username || !email || !password || !confirmPassword) {
-                alert("Preencha todos os campos.");
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                alert("Senhas não coincidem.");
-                return;
-            }
-
-            // Ir para próxima etapa
-            document.getElementById('signup-form').style.display = 'none';
-            document.getElementById('signup-form2').style.display = 'block';
-        }
-
-        function signup() {
-            const tema = document.getElementById('tema-user').value;
-
-            if (!tema) {
-                alert("Selecione um tema.");
-                return;
-            }
-
-            alert("Cadastro realizado com sucesso!");
-            window.location.href = "index.html";
-        }
-    </script>
-
+<script src="scriptLogin.js"></script>
 </body>
 
 </html>
