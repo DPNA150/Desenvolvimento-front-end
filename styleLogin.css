@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-.container {
+div {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -19,6 +19,7 @@ body {
 
 select,
 input[type="text"],
+input[type="date"],
 input[type="password"],
 input[type="tel"],
 input[type="email"] {
