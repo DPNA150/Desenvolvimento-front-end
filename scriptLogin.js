@@ -17,39 +17,50 @@ function toggleForm() {
     }
 }
 
-function login() {
-    const usernameLogin = document.getElementById('login-username').value;
-    const passwordLogin = document.getElementById('login-password').value;
+// LOGIN
+document.getElementById('login-form').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    if (usernameLogin === "" || passwordLogin === "") {
-        alert("Por favor, preencha todos os campos.");
-    } else {
-        window.location.href = "index.html";
+    if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
     }
-}
 
-function seguir() {
+    alert("Login realizado!");
+    window.location.href = "index.html";
+});
 
-    const username = document.getElementById('signup-username').value;
-    const email = document.getElementById('signup-email').value;
+// CADASTRO ETAPA 1
+document.getElementById('signup-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+    }
+
     const password = document.getElementById('signup-password').value;
     const confirmPassword = document.getElementById('signup-confirm-password').value;
 
-    if (username === "" || email === "" || password === "" || confirmPassword === "") {
-        alert("Por favor, preencha todos os campos.");
+    if (password !== confirmPassword) {
+        alert("Senhas não coincidem.");
         return;
-    } else if (password !== confirmPassword) {
-        alert("As senhas não coincidem.");
     }
 
-}
+    // Ir para próxima etapa
+    this.style.display = 'none';
+    document.getElementById('signup-form2').style.display = 'block';
+});
 
-function signup() {
+// CADASTRO FINAL
+document.getElementById('signup-form2').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    if (username === "" || email === "" || password === "" || confirmPassword === "") {
-        alert("Por favor, preencha todos os campos.");
-    } else {
-        alert("FOI PORRA.");
+    if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
     }
 
-}
+    alert("Cadastro realizado com sucesso!");
+    window.location.href = "index.html";
+});
