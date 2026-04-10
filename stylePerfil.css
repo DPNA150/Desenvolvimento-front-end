@@ -4,10 +4,6 @@ html {
 
 * {
     margin: 0;
-}
-
-* {
-    margin: 0;
     box-sizing: border-box;
 }
 
@@ -68,14 +64,14 @@ a:hover {
     color: #ccc;
 }
 
-.perfil-bio {
+.bio {
     margin-top: 20px;
     padding: 10px;
     background-color: #2c2c2c;
     border-radius: 10px;
 }
 
-.perfil-posts {
+.posts {
     margin-top: 30px;
 }
 
@@ -90,6 +86,6 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
-    padding: 50px 0;
-    margin-top: 50px;
+    padding: 100px 0;
+    margin-top: 20px;
 }
